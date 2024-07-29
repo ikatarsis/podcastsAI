@@ -13,23 +13,24 @@ import { toast, useToast } from '@/components/ui/use-toast';
 const useGeneratePodcast = ({ setAudio, voiceType, voicePrompt, setAudioStorageId }: GeneratePodcastProps) => {
   const [isGenerating, setIsGenerating] = useState(false)
 
+  const { toast } = useToast()
+
   const generateUploadUrl = useMutation(api.files.generateUploadUrl)
-  //загрузка сгенер файла в бд
   const { startUpLoad } = useUploadFiles(generateUploadUrl)
 
   const getPodcastAudio = useAction(api.openai.generateAudioAction)
 
   const getAudioUrl = useMutation(api.podcasts.getUrl)
+
   const generatePodcast = async () => {
-    setIsGenerating(true)
-    setAudio('')
+    setIsGenerating(true);
+    setAudio('');
 
     if(!voicePrompt) {
       toast({
-        title: 'Please provide a voiceType to generate a podcast'
+        title: "Please provide a voiceType to generate a podcast",
       })
-
-      return setIsGenerating(false)
+      return setIsGenerating(false);
     }
 
     try{
@@ -70,13 +71,13 @@ const GeneratePodcast = (props: GeneratePodcastProps) => {
 
   return (
     <div>
-      <div className='flex flex-col ga-2.5'>
+      <div className='flex flex-col gap-2.5'>
         <Label className='text-16 text-bold text-white-1'>
           AI Prompt to generate Podcast
         </Label>
         <Textarea
           className='input-class font-light focus-visible:ring-offset-orange-1'
-          placeholder='Provide text to generate podcast'
+          placeholder='Provide text to AI to generate a podcast'
           rows={5}
           value={props.voicePrompt}
           onChange={(e) => props.setVoicePrompt(e.target.value)}

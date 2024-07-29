@@ -65,7 +65,7 @@ const CreatePodcast = () => {
 
   return (
     <section className='mt-10 flex flex-col'>
-      <h1 className='text-20 font-bold text-white-1'>Create Podcast</h1>
+      <h1 className='text-20 font-bold text-white-1'>Create a Podcast</h1>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='mt-12 flex w-full flex-col'>
@@ -75,9 +75,9 @@ const CreatePodcast = () => {
               name='podcastTitle'
               render={({ field }) => (
                 <FormItem className='flex flex-col gap-2.5'>
-                  <FormLabel className='text-16 font-bold text-white-1'>Username</FormLabel>
+                  <FormLabel className='text-16 font-bold text-white-1'>Podcast title</FormLabel>
                   <FormControl>
-                    <Input className='input-class focus-visible:ring-offset-orange-1' placeholder='How a u?' {...field} />
+                    <Input className='input-class focus-visible:ring-offset-orange-1' placeholder='Your title' {...field} />
                   </FormControl>
                   <FormMessage className='text-white-1' />
                 </FormItem>
@@ -119,7 +119,7 @@ const CreatePodcast = () => {
                   <FormControl>
                     <Textarea
                       className='input-class focus-visible:ring-offset-orange-1'
-                      placeholder='Write a short description'
+                      placeholder='Write a short description about this podcast'
                       {...field}
                     />
                   </FormControl>
@@ -132,7 +132,7 @@ const CreatePodcast = () => {
           <div className='flex flex-col pt-10'>
             <GeneratePodcast
               setAudioStorageId={setAudioStorageId}
-              seAudio={setAudioUrl}
+              setAudio={setAudioUrl}
               voiceType={voiceType!}
               audio={audioUrl}
               voicePrompt={voicePrompt}

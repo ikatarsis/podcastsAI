@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import { Id } from '@/convex/_generated/dataModel';
+import React from 'react';
 
 export interface EmptyStateProps {
   title: string,
@@ -56,7 +57,7 @@ export type VoiceType =
 
 export interface GeneratePodcastProps {
   setAudioStorageId: Dispatch<SetStateAction<Id<'_storage'> | null>>,
-  seAudio: Dispatch<SetStateAction<string>>,
+  setAudio: Dispatch<SetStateAction<string>>,
   voiceType: VoiceType,
   audio: string,
   voicePrompt: string,
